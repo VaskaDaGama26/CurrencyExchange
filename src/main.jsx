@@ -8,7 +8,10 @@ import App from "./App.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <div className="flex flex-col max-w-2xl mx-auto mt-20">
+        <h2>Конвертер валют</h2>
+        <App />
+      </div>
     </Provider>
   </StrictMode>
 );

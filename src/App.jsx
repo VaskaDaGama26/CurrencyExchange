@@ -1,23 +1,42 @@
-import React from "react";
-import ConvertButton from "./components/ConvertButton";
-import CurrencySelector from "./components/CurrencySelector";
-import HistoryList from "./components/HistoryList";
-import InputAmount from "./components/InputAmount";
-import Result from "./components/Result";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const App = () => {
+import { fetchCurrencies } from "./features/currency/currenciesSlice";
+import { setFrom, setTo } from "./features/currency/currencySlice";
+
+import InputAmount from "./components/InputAmount";
+import CurrencySelect from "./components/CurrencySelect";
+import ConvertButton from "./components/ConvertButton";
+import Result from "./components/Result";
+import HistoryList from "./components/HistoryList";
+
+export default function App() {
+  const dispatch = useDispatch();
+  const { from, to } = useSelector((state) => state.currency);
+  const currenciesState = useSelector((state) => state.currencies);
+
+  useEffect(() => {
+    if (currenciesState.status === "idle") {
+      dispatch(fetchCurrencies());
+    }
+  }, [currenciesState.status, dispatch]);
+
   return (
     <>
       <InputAmount />
-      <CurrencySelector /> {/* Из какой валюты */}
-      <CurrencySelector /> {/* В какую валюту */}
+
+      <CurrencySelect
+        value={from}
+        onChange={(e) => dispatch(setFrom(e.target.value))}
+      />
+      <CurrencySelect
+        value={to}
+        onChange={(e) => dispatch(setTo(e.target.value))}
+      />
+
       <ConvertButton />
       <Result />
       <HistoryList />
     </>
   );
-};
-
-export default App;
-
-
+}

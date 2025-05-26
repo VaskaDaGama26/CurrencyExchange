@@ -40,10 +40,10 @@ const currencySlice = createSlice({
       state.amount = action.payload;
     },
     setTo(state, action) {
-      state.from = action.payload;
+      state.to = action.payload;
     },
     setFrom(state, action) {
-      state.to = action.payload;
+      state.from = action.payload;
     },
   },
   extraReducers: (builder) => {

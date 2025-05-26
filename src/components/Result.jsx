@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Result = () => {
+  const { result, status, error } = useSelector(
+    (state) => state.currency
+  );
   return (
-    <div>Result</div>
-  )
-}
+    <>
+      {status === "loading" && <p>Загрузка...</p>}
+      {error && <p style={{ color: "red" }}>Ошибка: {error}</p>}
 
-export default Result
+      {typeof result === "number" ? (
+        <p className="text-xl">Результат: {result.toFixed(2)}</p>
+      ) : (
+        <p>Результат: нет данных</p>
+      )}
+    </>
+  );
+};
+
+export default Result;
