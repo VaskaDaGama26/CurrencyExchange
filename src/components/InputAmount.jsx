@@ -8,7 +8,7 @@ const InputAmount = () => {
 
   return (
     <input
-      className="border mb-2"
+      className="border mb-2 text-sm ps-2"
       min={0}
       type="number"
       value={amount}

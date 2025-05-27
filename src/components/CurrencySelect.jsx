@@ -5,7 +5,12 @@ const CurrencySelect = ({ value, onChange }) => {
   const { currencies, status } = useSelector((state) => state.currencies);
 
   return (
-    <select className="border mb-2" value={value} onChange={onChange} disabled={status !== "succeeded"}>
+    <select
+      className="border mb-2 w-full text-xs"
+      value={value}
+      onChange={onChange}
+      disabled={status !== "succeeded"}
+    >
       {status === "loading" && <option>Загрузка...</option>}
       {status === "failed" && <option>Ошибка загрузки</option>}
       {status === "succeeded" &&
