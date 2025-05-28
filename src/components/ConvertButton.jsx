@@ -25,7 +25,7 @@ const ConvertButton = () => {
 
   return (
     <button
-      className="border bg-black text-sm text-white rounded-md w-full px-4 py-2 mx-auto cursor-pointer duration-300 hover:shadow-xl"
+      className="bg-(--bg-button) text-(--text-button) text-sm rounded-md w-full px-4 py-2 mx-auto cursor-pointer duration-300 hover:shadow-xl"
       onClick={handleConvert}
       disabled={currenciesState.status !== "succeeded"}
     >

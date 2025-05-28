@@ -6,7 +6,7 @@ const CurrencySelect = ({ value, onChange }) => {
 
   return (
     <select
-      className="border mb-2 w-full text-xs"
+      className="border mb-2 w-full input-text"
       value={value}
       onChange={onChange}
       disabled={status !== "succeeded"}

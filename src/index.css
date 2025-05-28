@@ -1,20 +1,14 @@
 @import "tailwindcss";
+@import "./ThemeColors.css";
 
 @layer base {
   html {
+    transition: all 500ms ease;
     font-family: "Roboto Mono", sans-serif;
-    @apply flex flex-col justify-center bg-gray-100 h-full;
+    @apply flex flex-col justify-center bg-(--bg-html) h-full;
   }
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
+.input-text {
+  @apply text-xs md:text-sm text-(--text-main);
 }

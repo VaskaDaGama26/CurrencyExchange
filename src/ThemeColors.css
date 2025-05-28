@@ -1,0 +1,24 @@
+[data-theme="light"] {
+  --bg-html: oklch(98.5% 0.002 247.839);
+
+  --bg-main: #ffffff;
+  --text-main: #000000;
+
+  --bg-button: #000000;
+  --text-button: #ffffff;
+
+  --text-date: oklch(55.1% 0.027 264.364);
+  --text-error: oklch(39.6% 0.141 25.723);
+}
+[data-theme="dark"] {
+  --bg-html: #505050;
+
+  --bg-main: #6c6c6c;
+  --text-main: #ffffff;
+
+  --bg-button: #ffffff;
+  --text-button: #000000;
+
+  --text-date: #c3c3c3;
+  --text-error: #cb8181;
+}
