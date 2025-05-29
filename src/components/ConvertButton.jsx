@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchConversion } from "../features/currency/currencySlice";
 import { addToHistory } from "../features/history/historySlice";
 
-const ConvertButton = () => {
+const ConvertButton = ({ label }) => {
   const dispatch = useDispatch();
   const { amount, from, to } = useSelector((state) => state.currency);
   const currenciesState = useSelector((state) => state.currencies);
@@ -25,11 +25,11 @@ const ConvertButton = () => {
 
   return (
     <button
-      className="bg-(--bg-button) text-(--text-button) text-sm rounded-md w-full px-4 py-2 mx-auto cursor-pointer duration-300 hover:shadow-xl"
+      className="bg-(--bg-button) button_shadow text-(--text-button) text-sm rounded-md mt-2 w-full px-4 py-2 mx-auto cursor-pointer duration-300"
       onClick={handleConvert}
       disabled={currenciesState.status !== "succeeded"}
     >
-      Конвертировать
+      {label}
     </button>
   );
 };

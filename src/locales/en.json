@@ -1,0 +1,16 @@
+{
+  "heading": "Currency converter",
+
+  "from": "From",
+  "to": "To",
+
+  "convert": "Convert",
+
+  "history": "History",
+  "history-error": "no data",
+
+  "loading": "Loading...",
+  "loading-error": "Loading Error",
+
+  "error": "Error"
+}

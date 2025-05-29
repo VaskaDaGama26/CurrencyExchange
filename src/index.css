@@ -12,3 +12,7 @@
 .input-text {
   @apply text-xs md:text-sm text-(--text-main);
 }
+
+.button_shadow:hover {
+  box-shadow: 0px 2px 10px 0px var(--bg-button);
+}

@@ -9,9 +9,13 @@ import CurrencySelect from "./components/CurrencySelect";
 import ConvertButton from "./components/ConvertButton";
 import Result from "./components/Result";
 import HistoryList from "./components/HistoryList";
-import ThemeButton from "./components/ThemeButton";
+import LanguageButton from "./components/iconsComponents/LanguageButton";
+import ThemeButton from "./components/iconsComponents/ThemeButton";
+
+import { useTranslation } from "react-i18next";
 
 export default function App() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { from, to } = useSelector((state) => state.currency);
   const currenciesState = useSelector((state) => state.currencies);
@@ -29,33 +33,36 @@ export default function App() {
     >
       <div className="flex flex-row justify-between align-top">
         <h2 className="text-xl text-(--text-main) font-bold mb-6">
-          Конвертер валют
+          {t("heading")}
         </h2>
-        <ThemeButton />
+        <div className="flex flex-row gap-4">
+          <LanguageButton />
+          <ThemeButton />
+        </div>
       </div>
 
       <InputAmount />
 
       <div className="flex flex-col gap-0">
         <div className="flex flex-col input-text">
-          <h3 className="font-light mb-1">Из</h3>
           <CurrencySelect
+            label={t("from")}
             value={from}
             onChange={(e) => dispatch(setFrom(e.target.value))}
           />
         </div>
         <div className="flex flex-col input-text">
-          <h3 className="font-light mb-1">В</h3>
           <CurrencySelect
+            label={t("to")}
             value={to}
             onChange={(e) => dispatch(setTo(e.target.value))}
           />
         </div>
       </div>
 
-      <ConvertButton />
+      <ConvertButton label={t("convert")} />
       <Result />
-      <HistoryList />
+      <HistoryList label={t("history")} error={t("history-error")} />
     </div>
   );
 }
