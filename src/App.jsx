@@ -31,7 +31,7 @@ export default function App() {
       className="flex gap-1 bg-(--bg-main) 
          p-6 flex-col rounded-4xl max-w-md mx-auto shadow-2xl"
     >
-      <div className="flex flex-row justify-between align-top">
+      <div className="flex flex-row justify-between align-top gap-2">
         <h2 className="text-xl text-(--text-main) font-bold mb-6">
           {t("heading")}
         </h2>
